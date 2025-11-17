@@ -1,7 +1,8 @@
+import nltk
 from nltk import pos_tag, word_tokenize
 
-nltk.download("averaged_perceptron_tagger")
-nltk.download("punkt")
+#nltk.download("averaged_perceptron_tagger_eng")
+#nltk.download("punkt_tab")
 
 def get_pos(sentence:str) -> list[list[str]]:
     """
@@ -10,7 +11,7 @@ def get_pos(sentence:str) -> list[list[str]]:
         - sentence(str): sentence to tag
     """
     tokens = word_tokenize(sentence)
-    return post_tag(tokens)
+    return pos_tag(tokens)
 
 
 
