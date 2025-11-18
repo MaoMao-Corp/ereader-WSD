@@ -3,7 +3,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 from html_parse import get_definitions 
 
-model = SentenceTransformer("./models/all-MiniLM-L6-v2")
+model = SentenceTransformer("all-MiniLM-L12-v2")
 
 def sentence2vec(sentences:str)-> list[float]:
     if type(sentences) == list:
