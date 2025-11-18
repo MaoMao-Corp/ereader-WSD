@@ -1,3 +1,6 @@
+from pystardict import Dictionary
+
+stardict = Dictionary("./dict/stardict")
 penn_to_simple = {
     # Nouns
     'NN': 'noun',
@@ -146,11 +149,29 @@ POS_DOBLE = {
              'prep. or conj.':                      ['prep.', 'conj.'],
              'a. &amp; vb. n.':                     ['a.', 'vb. n.'],
              'p. pr. &amp; rare vb. n.':            ['p. pr.', 'v.'],
-             'a., adv., &amp; n.':                  ['a.', 'adv.', 'n.']
+             'a., adv., &amp; n.':                  ['a.', 'adv.', 'n.'],
+             'adv.orprep.':                         ['adv.', 'prep.'],
+             'adv. &amp; pref':                     ['adv', 'verb'],
+             'adv. &amp; pref.':                    ['adv', 'verb'],
+             'conj. or adv.':                       ['conj', 'adv'],
+             'p. pr., a., &amp; vb. n.':            ['adj', 'verb'],
              }
 
 
 DICT_TO_SIMPLE = {
+    'pres. &amp; imp. sing. &amp; pl': 'verb',
+    'n. sing. &amp;  pl.': 'noun',
+    'pres. &amp; imp. sing. &amp; pl.': 'verb',
+    'n.sing. &amp; pl.': 'noun',
+    'a. &amp; a. pron.':                   'adj',
+    'pres. indic., 1st &amp; 3d pers. sing.': 'verb',
+    'pres. indic. 1st &amp; 3d pers. sing.': 'verb',
+    'v. t. &amp;  i.':                    'verb',
+    'Prop. n.':                           'noun',
+    'v. i. &amp; i.':                     'verb',
+    'n., sing. &amp; pl.': 'noun',
+    'v. i. &amp; t.':   'verb',
+    'v. t. &amp; \ni.':  'verb',
     'sing. pres.': 'verb',
     'interrog. adv.': 'adv',
     'inf.': 'verb',
@@ -165,7 +186,6 @@ DICT_TO_SIMPLE = {
     'peop. n.': 'noun',
     'pron.a.': 'pron',
     'contrac.': 'other',
-    'v. i. & t.': 'verb',
     '3d sing. pr.': 'verb',
     'adv. & pref.': 'adv',
     '3d sing. pres.': 'verb',
@@ -276,4 +296,12 @@ DICT_TO_SIMPLE = {
     'n.sing. & pl.': 'noun',
     '3d pers. sing.': 'verb',
     'v.': 'verb',
+    'unk' :'other',
 }
+POS_SET = {'prep', 'det', 'noun', 'other', 'adv', 'adj', 'verb', 'interj', 'pron', 'conj'}
+
+if __name__ == "__main__":
+    pos_set = []
+    for v in DICT_TO_SIMPLE.values():
+        pos_set.append(v)
+    print(set(pos_set))
