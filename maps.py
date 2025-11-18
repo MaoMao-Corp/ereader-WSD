@@ -1,7 +1,7 @@
 from pystardict import Dictionary
 
 stardict = Dictionary("./dict/stardict")
-penn_to_simple = {
+PENN_TO_SIMPLE = {
     # Nouns
     'NN': 'noun',
     'NNS': 'noun',
@@ -155,10 +155,29 @@ POS_DOBLE = {
              'adv. &amp; pref.':                    ['adv', 'verb'],
              'conj. or adv.':                       ['conj', 'adv'],
              'p. pr., a., &amp; vb. n.':            ['adj', 'verb'],
+             'adv. &amp; adj.':                     ['adv', 'adj'],
+             'a.;alsoadv.':                         ['adj', 'adv'],
+
              }
 
 
 DICT_TO_SIMPLE = {
+    'abl.': 'other',
+    '1st &amp; 3d pers. sing. pres.': 'verb',
+    'pr. n. pl.': 'noun',
+    'imperative.': 'verb',
+    'm.': 'noun',
+    'n.pl.': 'noun',
+    'PROP. n. pl.': 'noun',
+    'n. sing &amp; pl.': 'noun',
+    'n. pl. &amp; sing.': 'noun',
+    'v. t. &amp; v. i.': 'verb',
+    'imp. sing. &amp; 2d pers. pl.': 'verb',
+    'masc. a.': 'adj',
+    'p. p., fem.': 'verb',
+    'prop. n. sing. &amp; pl.': 'noun',
+    'n. m.': 'noun',
+    'a. m.': 'adj',
     'pres. &amp; imp. sing. &amp; pl': 'verb',
     'n. sing. &amp;  pl.': 'noun',
     'pres. &amp; imp. sing. &amp; pl.': 'verb',

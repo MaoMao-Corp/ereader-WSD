@@ -1,19 +1,39 @@
+from html_parse import get_definitions
 from PoS import get_pos
-from WSD import get_sense
-
-def main(sentence: str, target: int, dict_path:str):
-
-    pos_sentence = get_pos(sentence)
-
-    pos_target = pos_sentence[target]
-    print(pos_target)
-
-    sense = get_sense(pos_target, dict_path)
+from helper import filter_by_pos
+from WSD import  sentence2vec, cos_similarity
 
 
+def main(sentence: str, target: int):
 
+    pos = get_pos(sentence, target)
+    word = sentence.split(" ")[target]
+
+    entries:dict = get_definitions(word)
+    entries:list[str] = filter_by_pos(entries, pos) 
+    
+    all = [sentence]
+    all.extend(entries)
+
+    embeddings = sentence2vec(all)
+    embed_context = embeddings[0]
+    embed_entries = embeddings[1:]
+
+    scores = cos_similarity(embed_context, embed_entries)
+    
+    rank = []
+    for entry, score in zip(entries, scores):
+        rank.append((entry, float(score)))
+    
+    # Sort by score (highest first)
+    rank = sorted(rank, key=lambda x: x[1], reverse=True)
+
+
+    for entry in rank:
+        print(entry[0], "score: ", entry[1])
+        print("------------")
 
 if __name__=="__main__":
-    sentence = "Let's bench for him for the next game"
-    target = 2
-    main(sentence, target, "./")
+    sentence = "The skier slid down the snow bank"
+    target = 6
+    main(sentence, target)
