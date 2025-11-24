@@ -1,4 +1,5 @@
 # MaoMao Dict koplugin
+[![Lua](https://img.shields.io/badge/Lua-%232C2D72.svg?logo=lua&logoColor=white)](#)
 
 A lightweight adaptation of the [original project](https://github.com/MaoMao-Corp/MaoMao-Dict), tailored specifically for e-readers running KOReader. This plugin preserves the core functionality of the main project: retrieving word definitions based on their surrounding context to improve reading flow and comprehension.
 
